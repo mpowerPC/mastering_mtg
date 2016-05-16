@@ -1,0 +1,308 @@
+/***********************************************************  
+ *  Name: Gregory James Caldwell Jr.                       *
+ *  Email: Gregory_Caldwell@student.uml.edu                *
+ *  File: Card.php                                         *
+ *  Starting Date: Thursday February 12th, 2014            *
+ *  Last Date: Monday April 25th, 2014                     *
+ *  Course: 91.462 - GUI Programming II                    *
+ ***********************************************************/
+ 
+/* Order to CSS */
+/* Margin */ 
+/* Border */ 
+/* Background Colour */ 
+/* Padding */ 
+/* Height × Width */
+/* Other */
+
+/* Order to Direction */
+/* Left */ 
+/* Right */ 
+/* Top */
+/* Bottom */
+
+ /*
+ *  +-------------------+
+ *  |                   |
+ *  |      margin       |
+ *  |                   |
+ *  |  +---border----+  |
+ *  |  |             |  |
+ *  |  | (background |  |
+ *  |  |   colour)   |  |
+ *  |  |             |  |
+ *  |  |   padding   |  |
+ *  |  |             |  |
+ *  |  |  +-------+  |  |
+ *  |  |  | height|  |  |
+ *  |  |  |   ×   |  |  |
+ *  |  |  | width |  |  |
+ *  |  |  +-------+  |  |
+ *  |  +-------------+  |
+ *  +-------------------+
+ */
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  background-color: hsla(206, 30%, 10%, 1);
+}
+
+header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header img.logo {
+  height: 48px;
+  width: 35px;
+}
+
+header .menu {
+  position: relative;
+  left: 0px;
+}
+
+header .menu > li {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-family: 'Titillium Web', arial, helvetica, sans-serif;
+  font-weight: 100;
+  display: inline-block;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+header .menu > li:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#content {
+  padding-top: 25px;
+}
+
+#middleBar
+{
+  margin: 25px auto ;
+  background-color: rgba(0, 0, 0, 0.2) ;
+  min-height: 50% ; 
+  box-sizing: border-box ;
+  display: flex ;
+  /*justify-content: space-between ;*/
+  align-content: center ;
+  align-items: center ;
+}
+
+#bottomBar {
+  margin: 25px auto ;
+  min-height: 50px ;
+  background-color: rgba(0, 0, 0, 0.4) ;
+  box-sizing: border-box ;
+  display: flex ;
+  align-content: center ;
+  align-items: center ;
+}
+
+#bottomBar h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 25px;
+}
+
+#Buy_Card{
+ padding-left:25px;
+}
+
+#nav_header {
+  float: left;
+  padding-right: 15px;
+}
+
+.form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+#card_img {
+  margin: 25px;
+}
+
+#cardStuff{
+  width: 40% ;
+  float: left ;
+  font-family: open_sanssemibold, Ariel, sans-serif;
+  /*font-size: 16; */
+  display: none;
+}
+
+#cardData { 
+  margin-top: 25px;
+  padding-left: 25px ;
+  width: 40%;
+  float: left;
+  display: block;
+}
+
+@media screen and (min-width: 870px){
+  #card_img {
+    float: left;
+    display: block;
+  }
+  #cardStuff {
+    display: block;
+  }
+  #cardData { 
+    padding-left: 0px;
+  }
+  #bottomBar h4  {
+    padding-left: 27%;
+  }
+}
+
+#card_img img {
+  border: 5px solid black;
+  border-radius: 20px;
+}
+
+.card{
+  margin: 0 auto;
+  margin-top: 25px;
+  max-width: 940px;
+}
+
+.card nav {
+  width: 100%; 
+  background-color: rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+#card_name{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#nav_header {
+  float: left;
+  padding-right: 15px;
+}
+
+input {
+  max-width: 375px;
+  text-transform: none;
+  line-height: 25px;
+  height: 25px;
+}
+
+input textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.background {
+  fill: #FFF;
+  fill-opacity: 0.01;
+}
+
+.component {
+  fill: #e1e1e1;
+}
+
+.component .label {
+  font-family: Myriad, Helvetica, Arial;
+  text-anchor: middle;
+  fill: #0000FF;
+}
+
+.arc {
+  stroke-weight:0.1;
+  fill: #4e8fff;
+}
+
+
+.arc2 {
+  stroke-weight:0.1;
+  fill: #3660b0;
+}
+
+.label {
+  font-family:  Myriad, Helvetica, Arial;
+  text-anchor: middle;
+  color: #FFF;
+}
+
+.radial-svg {
+  display: block;
+  margin: 0 auto;
+  width: 175px;
+  height: 175px;
+}
+
+#outer {
+  background:#FFFFFF;
+  border-radius: 5px;
+  color: #000;
+}
+
+#cardPercentages {
+  padding-top: 25px;
+  padding-right: 25px;
+  padding-left: 15%;
+  box-sizing: border-box;
+}
+
+.selectedRadial {
+  border-radius: 3px;
+  background: #f4f4f4;
+  color: #000;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  border: 1px solid rgba(200,200,200,0.85);
+}
+
+.radial {
+  border-radius: 3px;
+  background: #FFFFFF;
+  color: #000;
+
+}
+
+#info{
+  display: block;
+  position: fixed;
+  top: 68px;
+  left: 100px;
+  padding: 4px 12px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: hsl(200, 70%, 50%);
+  border: none;
+}

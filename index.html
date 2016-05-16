@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html ng-app="website">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--
+File: index.html
+91.462 Project: Mastering Magic
+Michael Mammosser and Andrew DiBiasio Computer Science Majors @ UMass Lowell
+Contact: michael_mammosser@student.uml.edu andrewdibiasio6@gamil.com
+Copyright (c) 2015 by Michael Mammosser and Andrew DiBiasio.  All rights reserved.
+Updated on April 28, 2015.
+
+A simple html/js home page using ScrollMagic.js
+-->
+    <title>Mastering Magic</title>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- Scroll Magic -->
+    <script src="js/scrollmagic/numeral.min.js"></script>
+    <script src="js/scrollmagic/TweenMax.js"></script>
+    <script src="js/scrollmagic/ScrollMagic.js"></script>
+    <script src="js/scrollmagic/jquery.ScrollMagic.js"></script>
+    <script src="js/scrollmagic/animation.gsap.js"></script>
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="css/screen.css" />
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,100|Righteous|Titillium+Web' rel='stylesheet' type='text/css'>
+
+    <!-- Custom Unicode Characters -->
+    <link href='font-awesome-4.3.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/home.css" />
+
+    <!-- Mana Wheel CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    
+    <!-- Changes the small icon on the page to the image referenced. --> 
+    <link rel="icon" href="images/MTGCard.png">
+  </head>
+  <body ng-controller="MainCtrl">
+    <!-- Navigation Bar -->
+    <header>
+      <img class="logo" src="images/logo.jpg" alt="Mastering Magic">
+      <ul class='menu'>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cards.php">Cards</a></li>
+        <li><a href="decks.php?or=0">Decks</a></li>
+      </ul>
+    </header>
+
+    <!-- Landing Page, uses scrollmagic.js to fill the whole window with the landing. -->
+    <div id="showcase">
+      <div class="trigger"></div>
+      <div class="overlay contained flex block">
+        <div class='info'>
+          <h1>Mastering Magic</h1>
+          <p><em>A Magic: The Gathering Knowledge Base</em></p>
+        </div> <!-- .info -->
+        <div class="controls">
+          <i class='goto-content fa fa-angle-down fa-2x'></i>
+        </div> <!-- .controls -->
+      </div> <!-- .overlay -->
+
+      <video class="video" preload="metadata" autoplay loop muted>
+         <source src="videos/MTGTrailer.mp4" type="video/mp4" />
+         Your browser does not support the video tag.
+      </video>
+    </div> <!-- #showcase -->
+
+    <div id="about" class="feature centered">
+      <h1>About Mastering Magic</h1>
+      <p>Mastering Magic is a knowledge base for both novice and experienced players interested in playing the Magic: The Gathering trading card game.</p>
+      <p>Magic has detailed and at times, complex rules. Understanding and mastering these rules is crucial to understanding and mastering the game itself. Our main goal is to help novice players grow by providing them with the <a href="http://media.wizards.com/images/magic/resources/rules/EN_MTGM13_Rulebook.pdf">official rules</a>, a demo of the <a href="http://archive.wizards.com/Magic/TCG/NewtoMagic.aspx?x=mtg/tcg/newtomagic/learntoplay">PC game</a>, videos, and explanations of keywords that we find to be the most important for new players to know. We also offer experienced players access to card statistics as well as quick access to successful tournament decks. Our site offers something for players of any skill level and we hope it enhances everyone's Magic: The Gathering experience.<p>
+    </div>
+
+    <div class="spaced divider"></div> 
+
+    <div id="basics" class="feature centered">
+      <h1>Magic Basics</h1>
+      <p>In the Magic game, you play the role of a planeswalker—a powerful wizard who fights other planeswalkers for glory, knowledge, and conquest. Your deck of cards, know as your &ldquo;library&rdquo;, represents all the weapons in your arsenal. It contains the spells you have learned and the creatures you can summon to fight for you and against your opponent. Once you have brought your opponent's life total to zero you have won the game, but beware, your opponent will cast every spell in their library, and summon all sorts of ferocious creatures to make sure your life total reaches zero before theirs does. Our job at Mastering Magic is to make sure this never happens.</p>
+      <p style="padding-top:25px">Watch the videos below to learn the basics of Magic the Gathering.</p>
+      <iframe style="padding-top:25px" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLXBRusXdEyDLu3K385PnXqLUR8UvlM1z-" frameborder="0"></iframe>
+    </div>
+
+    <div class="spaced divider"></div> 
+
+    <div id="mainContainer" class="feature">
+      <h1>Magic Color Wheel</h1>
+      <p>Magic players craft their own decks by selecting cards that best suit their individual playing styles and strategies. Building a deck often focuses on taking advantage of the powers inherent in each of Magic's five mana colors and the mana color wheel below will give players a new insight into those powers. It offers player an in-depth look at the lore behind each color of mana, the playing style each color offers, and some important keywords that belong to each mana color. When finished choosing their mana colors, no colors is a valid option, players will be recommend professional decks based on their unique color choices.</p>
+
+      <div id="manaTitle" class="feature"></div>
+
+      <!-- slide slide-animation text-left (add to paragraph's class to add animation -->
+      <div id="manaInformation" class="left" ></div>
+
+      <!-- Looping over the slides array using ng-repeat and attaching an img element for each slide in the slides array. -->
+      <div id="sliderContainer" >
+
+        <!-- Arrows to invoke nextSlide and prevSlide functions. -->
+        <a class="arrow prev" ng-click="nextSlide()"></a>
+        <a class="arrow next" ng-click="prevSlide()"></a>
+
+        <div id="slider" class="container slider">
+          <!-- All slide animation is added when the slide-animation class is provided. -->
+          <img ng-repeat="slide in slides" class="slide slide-animation"
+            ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}" width="150" height="150" />
+
+          <!-- Transparent button placed over mana slider. Pressing this button will cause that color of mana to be checked or unchecked in form as well as mana button. -->
+          <button id="manaButton" ng-click="buttonClick()"></button>
+        </div> <!-- #slider -->
+
+        <!-- Colored mana buttons. When pressed, appropriate mana color is checked in form -->
+        <div id="manaButtons" class="container">
+          <button id="redButton" class="btn btn-lg" discription="red" active="false" ng-click="manaButtonClick('red')"></button>
+          <button id="greenButton" class="btn btn-lg" discription="green" active="false" ng-click="manaButtonClick('green')"></button>
+          <button id="blueButton" class="btn btn-lg" discription="blue" active="false" ng-click="manaButtonClick('blue')"></button>
+          <button id="blackButton" class="btn btn-lg" discription="black" active="false" ng-click="manaButtonClick('black')"></button>
+          <button id="whiteButton" class="btn btn-lg" discription="white" active="false" ng-click="manaButtonClick('white')"></button>
+        </div> <!-- #manaButtons -->
+
+        <!-- Form that submits the user's choice in mana colors to decks.php via the get method. All inputs are not displayed due to CSS -->
+        <div class="form" ng-controller="formController">
+          <form action="decks.php" method="get" id='form_tag'>
+            <!-- Leaving action blank because it will be submitted in the php file it will be included in-->
+            <!-- Fixed bug involving mana form inputs remaining checked when navigating back to index page by removing value = 1 -->
+            <input type="checkbox" name="red" id="red">
+            <input type="checkbox" name="green" id="green">
+            <input type="checkbox" name="blue" id="blue">
+            <input type="checkbox" name="black" id="black">
+            <input type="checkbox" name="white" id="white">
+            <input type="radio" id="radio6" name = 'or' value = '1' checked="checked" style="display:none;">
+            <button type="submit" class="buttonStyle" id="findDecks">Find Decks</button>
+          </form>
+        </div> <!-- .form -->
+      </div> <!-- #sliderContainer -->
+
+      <div id="manaAbilities" class="container left"></div>
+
+    </div> <!-- #mainContainer -->
+
+    <!-- In AngularJS 1.2, animations are no longer part of the core and that is why we are including angular-animate.min.js in conjunction with angular.min.js. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="js/home.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

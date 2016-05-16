@@ -1,0 +1,382 @@
+/*
+ * File: decks.css
+ * 91.462 Project: Mastering Magic
+ * Michael Mammosser, Computer Science Major @ UMass Lowell
+ * Contact: michael_mammosser@student.uml.edu
+ * Copyright (c) 2015 by Michael Mammosser.  All rights reserved.
+ * Updated on April 30, 2015.
+ *
+ * A simple html/php page that displays Magic the gathering decks.
+ */
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: hsla(206, 30%, 10%, 1);
+  color: #fff;
+}
+
+/* Navigation Bar */
+header {
+  /* Position */
+  top: 0;
+  left: 0;
+
+  /* Size */
+  width: 100%;
+  min-width: 555px;
+  height: 68px;
+  padding: 10px 100px;
+
+  /* Display */
+  display: flex;
+  box-sizing: border-box;
+
+  /* Colors */
+  background-color: rgba(0, 0, 0, 0.4);
+
+  /* Contents */
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+header a {
+  /* Text */
+  color: #fff;
+  text-decoration: none;
+}
+
+header img.logo {
+  /* Image Properties */
+  height: 48px;
+  width: 35px;
+}
+
+header .menu > li {
+  /* Size */
+  padding: 10px;
+  margin-right: 10px;
+
+  /* Display */
+  display: inline-block;
+
+  /* Text */
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-family: 'Titillium Web', arial, helvetica, sans-serif;
+  font-weight: 100;
+}
+
+header .menu > li:hover {
+  /* Colors */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Instructions button */
+#info {
+  /* Position */
+  position: fixed;
+  top: 68px;
+  left: 100px;
+
+  /* Size */
+  padding: 4px 12px;
+
+  /* Display */
+  display: block;
+  border: none;
+
+  /* Colors */
+  background-color: rgba(0, 0, 0, 0.4);
+
+  /* Text */
+  color: hsl(200, 70%, 50%);
+}
+
+/* Search Bar */
+#search {
+  /* Position */
+  margin: 0 auto;
+  
+  /* Size */
+  max-width: 940px;
+  min-width: 600px;
+  width: 100%;
+  padding: 4px 50px;
+  margin-bottom: 25px;
+ 
+  /* Display */
+  display: flex;
+  box-sizing: border-box;
+  
+  /* Colors */
+  background-color: rgba(0, 0, 0, 0.2);
+  
+  /* Text */
+  font-weight: bold;
+
+  /* Contents */
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+#search_buttons {
+  /* Position */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Size */
+  width: 85%;
+}
+
+/* Hide radio button. */
+input[type=checkbox] {
+  /* Display */
+  display:none; 
+}    
+
+/* Display button instead of radio button. */
+input[type=checkbox] + label {
+  /* Position */
+  margin: 5px;
+
+  /* Size */
+  padding: 4px 12px;
+
+  /* Text */
+  color: white;
+
+  /* Display */
+  display:inline-block;
+  border-radius: 5px;
+  border: 3px solid transparent;
+}
+
+input[type=checkbox]:checked + label {
+  /* Display */
+  border: 3px solid hsl(200, 70%, 50%);
+}
+
+#black_label {
+  /* Colors */
+  background-color: black;
+}
+#blue_label {
+  /* Colors */
+  background-color: blue;
+}
+#green_label {
+  /* Colors */
+  background-color: green;
+}
+#red_label {
+  /* Colors */
+  background-color: red;
+}
+#white_label {
+  /* Colors */
+  background-color: white;
+  
+  /* Text */
+  color: gray;
+}
+
+input[type=submit]{
+  /* Position */
+  margin: 5px;
+
+  /* Size */
+  padding: 4px 12px;
+
+  /* Colors */
+  background-color: #fff;
+
+  /* Text */
+  font-weight: bold;
+  color: hsl(200, 70%, 50%);
+
+  /* Display */
+  display:inline-block;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Page Content */
+#content {
+  padding-top: 25px;
+}
+
+/* Deck Window */
+.deck{
+  /* Position */
+  margin: 0 auto;
+
+  /* Size */
+  max-width: 940px;
+}
+
+.deck nav {
+  /* Size */
+  width: 100%; 
+  padding: 10px 50px;
+  
+  /* Colors */
+  background-color: rgba(0, 0, 0, 0.4);
+
+  /* Display */
+  display: flex;
+  box-sizing: border-box;
+
+  /* Content */
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+#deck_name{
+  /* Position */
+  margin-top: 0px;
+  margin-bottom: 0px;
+  
+  /* Text */
+  color: hsl(200, 70%, 50%);
+}
+
+#nav_header {
+  /* Position */
+  float: left;
+  padding-right: 15px;
+}
+
+/* Deck Selection */
+select {
+  /* Size */
+  height: 30px;
+
+  /* Text */
+  text-transform: none;
+  line-height: 30px;
+}
+
+select textarea {
+  /* Position */
+  margin: 0;
+
+  /* Text */
+  font: inherit;
+  color: inherit;
+}
+
+/* Card Image */
+#card_img {
+  /* Position */
+  margin: 25px;
+
+  /* Display */
+  display: none;
+}
+
+/* Remove card image when screen is too small. */
+@media screen and (min-width: 725px){
+  #card_img {
+    /* Position */
+    float: right;
+
+    /* Display */
+    display: block;
+  }
+}
+
+#card_img img {
+  /* Display */
+  border: 5px solid black;
+  border-radius: 20px;
+}
+
+#deck_info{
+  /* Position */
+  margin-top: 25px;
+
+  /* Size */
+  width: 100%;
+
+  /* Colors */
+  background-color: rgba(0, 0, 0, 0.2);
+  
+  /* Display */
+  display: flex;
+  
+  /* Content */
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Positioning of cards */
+.pull-left {
+  /* Position */
+  float: left;
+}
+
+/* Hide extra decks */
+.card_list{
+  /* Display */
+  display: none;
+}
+
+.card_list ul{
+  /* Display */
+  list-style-type: none;
+  display: block;
+}
+
+.card_list a{
+  /* Text */
+  text-decoration: none;
+  color: #FFF;
+}
+
+/* Add space between card links. */
+li{
+  /* Position */
+  margin: 10px 0;
+}
+
+/* Deck Format */
+#deck_format{
+  /* Position */
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+  /* Size */
+  min-height: 50px;
+  padding: 10px 50px;
+
+  /* Display */
+  display: flex;
+  box-sizing: border-box;
+
+  /* Colors */
+  background-color: rgba(0, 0, 0, 0.4);
+  
+  /* Text */
+  color: #fff;
+  
+  /* Content */
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+} 
+
+/* Shrink the size of the format bar. */
+#deck_format h4{
+  /* Position */
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

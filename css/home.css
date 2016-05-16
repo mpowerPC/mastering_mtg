@@ -1,0 +1,370 @@
+/*
+ * File: home.css
+ * 91.462 Project: Mastering Magic
+ * Michael Mammosser, Computer Science Major @ UMass Lowell
+ * Contact: michael_mammosser@student.uml.edu
+ * Copyright (c) 2015 by Michael Mammosser.  All rights reserved.
+ * Updated on April 30, 2015.
+ *
+ * A simple html/js home page using ScrollMagic.js
+ */
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: hsla(206, 30%, 10%, 1);
+  color: #fff;
+}
+
+body p {
+  /* Text */
+  line-height: 30px;
+}
+
+/* Navigation Bar */
+header {
+  /* Position */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Size */
+  width: 100%;
+  padding: 50px 100px;
+
+  /* Display */
+  display: flex;
+  box-sizing: border-box;
+  z-index: 100;
+  transition: padding 840ms, background-color 840ms;
+
+  /* Text */
+  color: #fff;
+
+  /* Contents */
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+header a {
+  /* Text */
+  color: #fff;
+  text-decoration: none;
+}
+
+header.fold {
+  /* Size */
+  padding: 10px 100px;
+
+  /* Colors */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Grey scale image when landing page is in focus. */
+header img.logo {
+  /* Image Properties */
+  height: 48px;
+
+  /* Display */
+  opacity: .4;
+  -webkit-filter: grayscale(100%);
+  /*filter: grayscale(100%);*/
+  transition: opacity 820ms, -webkit-filter 820ms, filter 820ms;
+}
+
+header.fold img.logo {
+  /* Display */
+  -webkit-filter: grayscale(0%);
+  /*filter: grayscale(0%);*/
+  opacity: 1;
+}
+
+header .menu {
+  /* Position */
+  position: relative;
+  left: 100px;
+
+  /* Size */
+  color: #fff;
+
+  /* Display */
+  transition: left 840ms;
+}
+
+header.fold .menu {
+  /* Position */
+  left: 0px;
+}
+
+header .menu > li {
+  /* Position */
+  margin-right: 10px;
+
+  /* Size */
+  padding: 10px;
+
+  /* Display */
+  display: inline-block;
+  transition: background-color 240ms;
+
+  /* Text */
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-family: 'Titillium Web', arial, helvetica, sans-serif;
+  font-weight: 100;
+}
+
+header .menu > li:hover {
+  /* Colors */
+  background-color: rgba(0, 0, 0, 0.4)
+}
+
+/* Landing Page Properties */
+#showcase {
+  /* Position */
+  position: relative;
+  top: 0;
+  left: 0;
+
+  /* Display */
+  overflow: hidden;
+
+  /* Text */
+  color: #fff;
+  text-align: center;
+}
+
+#showcase .trigger {
+  /* Position */
+  position: absolute;
+  margin: auto auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Size */
+  height: 1px;
+  width: 1px;  
+}
+
+/* Add haze to video */
+#showcase .overlay {
+  /* Display */
+  background-image: url(../images/dot.png);
+}
+
+#showcase .overlay .info {
+  /* Text */
+  text-align: center;
+}
+
+#showcase .overlay h1 {
+  /* Position */
+  margin: 0;
+  padding: 0;
+  
+  /* Text */
+  font-size: 6em;
+  color: hsl(0, 0%, 100%);
+  font-family: "Righteous", impact, helvetica, sans-serif;
+  font-weight: normal;  
+  text-transform: uppercase;  
+  opacity: .9;
+}
+
+#showcase .overlay em {
+  /* Text */
+  color: hsl(200, 70%, 50%);
+  text-shadow: 0 0 30px hsla(200, 70%, 40%, .5);
+}
+
+#showcase .overlay p {
+  /* Position */
+  padding: 10px 20px 0;
+  margin: 0;
+
+  /* Size */
+  max-width: 960px;
+  
+  /* Text */
+  font-family: "lato", arial, helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: 300;
+}
+
+/* Background video */
+#showcase .video {
+  /* Position */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  /* Size */
+  width: 100%;
+  height: 100%;
+
+  /* Display */
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Showcase classes */
+.flex {
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  
+  /* Content */
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.contained {
+  /* Display */
+  overflow: hidden;
+}
+
+.block { 
+  /* Size */
+  width: 100%;
+  height: 100vh; 
+  min-height: 480px; 
+}
+
+.info {
+  /* Size */
+  padding: 50px 50px;
+  /* Text */
+  text-align: justify;
+}
+
+/* Page down button. */
+#showcase .controls {
+  /* Position */
+  position: absolute;
+  bottom: 30px;
+  
+  /* Size */
+  width: 100%;
+
+  /* Text */
+  font-family: FontAwesome;
+  text-align: center;
+}
+
+@-moz-document url-prefix() {
+    #showcase .controls {
+        width: 0px;
+    }
+}
+
+#showcase .overlay .controls .goto-content {
+  /* Size */
+  padding: 5px 15px;
+
+  /* Display */
+  border-radius: 100px;
+  border: 2px solid #fff;
+  opacity: .4;
+  transition: padding 420ms, opacity 420ms;
+}
+
+#showcase .overlay .controls .goto-content:hover {
+  /* Size */
+  padding: 5px 25px;
+
+  /* Display */
+  opacity: 1;
+}
+
+/* Classes for home page divisions. */
+.centered {
+  /* Display */
+  display: flex;
+  flex-direction: column;
+
+  /* Contents */
+  justify-content:center;
+  align-content:center;
+  align-items:center;
+}
+
+.feature {
+  /* Position */
+  margin: 0 auto;
+
+  /* Size */
+  padding: 0;
+  max-width: 960px;
+
+  /* Text */
+  color: hsl(200, 50%, 80%);
+}
+
+.feature h1 {
+  /* Size */
+  padding-bottom: 25px;
+  padding-top: 25px;
+  width: 100%;
+
+  /* Display */
+  border-top: 0;
+  display: block;
+
+  /* Text */
+  text-align: center;
+  color: #fff;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 3.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.feature p {
+  /* Position */
+  margin: 0 0 15px;
+
+  /* Text */
+  font-family: arial, helvetica, sans-serif;
+  font-size: 1.5em;
+  font-weight: 100;
+}
+
+.divider {
+  /* Size */
+  width: 100%;
+  height: 1px;
+
+  /* Colors */
+  background-color: hsl(220, 30%, 30%);
+}
+
+.spaced {
+  /* Position */
+  margin-top: 30px;
+}
+
+#about a {
+  /* Text */
+  color: #d286cb; 
+  text-decoration: none;
+}
+
+/* Text format for paragraphs */
+.centered {
+  /* Text */
+  text-align: center;
+}
+
+.left {
+  /* Text */
+  text-align: left;
+}

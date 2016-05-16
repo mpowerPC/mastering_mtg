@@ -1,0 +1,155 @@
+/***********************************************************  
+ *  Name: Gregory James Caldwell Jr.                       *
+ *  Email: Gregory_Caldwell@student.uml.edu                *
+ *  File: popularCards.css                                 *
+ *  Starting Date: Thursday February 12th, 2014            *
+ *  Last Date: Monday April 25th, 2014                     *
+ *  Course: 91.462 - GUI Programming II                    *
+ ***********************************************************/
+ 
+/* Order to CSS */
+/* Margin */ 
+/* Border */ 
+/* Background Colour */ 
+/* Padding */ 
+/* Height × Width */
+/* Other */
+
+/* Order to Direction */
+/* Left */ 
+/* Right */ 
+/* Top */
+/* Bottom */
+
+ /*
+ *  +-------------------+
+ *  |                   |
+ *  |      margin       |
+ *  |                   |
+ *  |  +---border----+  |
+ *  |  |             |  |
+ *  |  | (background |  |
+ *  |  |   colour)   |  |
+ *  |  |             |  |
+ *  |  |   padding   |  |
+ *  |  |             |  |
+ *  |  |  +-------+  |  |
+ *  |  |  | height|  |  |
+ *  |  |  |   ×   |  |  |
+ *  |  |  | width |  |  |
+ *  |  |  +-------+  |  |
+ *  |  +-------------+  |
+ *  +-------------------+
+ */
+
+#popularCardsMain{
+  align-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  display: flex;
+  font-family: sans-serif;
+  height: 374px;
+  margin-bottom: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 25px;
+  min-height: 50%;
+  width: 940px;
+  }
+  
+#popularCardsWhite {
+  color: hsl(200, 70%, 50%);
+  text-align: center;
+  box-sizing: border-box ;
+  display: block ;
+  height: 280px ;
+  width: 150px ;
+  background-color: rgb(17,26,33) ;
+  border-style:solid;
+  border-width:5px;
+  border-color:rgba(0, 0, 0, 0.4);
+  margin-left: 20px; 
+  margin-right: 20px;
+  width: 18% ;
+  margin-top: 60px; 
+}
+  
+#popularCardsGreen {
+  color: hsl(200, 70%, 50%);
+  text-align: center;
+  box-sizing: border-box ;
+  display: block ;
+  height: 280px ;
+  background-color: rgb(17,26,33) ;
+  float: left ; 
+  border-style:solid;
+  border-width:5px;
+  border-color: rgba(0, 0, 0, 0.4);
+  margin-left: 20px; 
+  width: 18% ;
+  margin-top: 40px; 
+}
+  
+#popularCardsBlue {
+  color: hsl(200, 70%, 50%);
+  text-align: center;
+  box-sizing: border-box ;
+  display: block ;
+  height: 280px ;
+  background-color: rgb(17,26,33) ;
+  float: right ; 
+  border-style:solid;
+  border-width:5px;
+  border-color:rgba(0, 0, 0, 0.4);
+  margin-right: 20px;
+  width: 18% ;
+  margin-top: 40px; 
+}
+  
+#popularCardsRed {
+  color: hsl(200, 70%, 50%);
+  text-align: center;
+  box-sizing: border-box ;
+  display: block ;
+  height: 280px ;
+  background-color: rgb(17,26,33) ;
+  border-style:solid;
+  border-width:5px;
+  border-color:rgba(0, 0, 0, 0.4);
+  float: left ;
+  margin-left: 20px ;  
+  width: 18% ;
+}
+  
+#popularCardsBlack {
+  color: hsl(200, 70%, 50%);
+  text-align: center;
+  box-sizing: border-box ;
+  display: block ;
+  height: 280px ;
+  background-color: rgb(17,26,33) ;
+  border-style:solid;
+  border-width:5px;
+  border-color:rgba(0, 0, 0, 0.4);
+  float: right ;
+  margin-right: 20px; 
+  width: 18% ;
+}
+
+#PopularCards {
+  margin: auto ;
+  text-align: center;
+  color: hsl(200, 70%, 50%);
+}
+
+#popularCardsMain p {
+  font-size: 14px; 
+  line-height: 2px; 
+}
+
+.CARD {
+  border: 3px solid black;
+  border-radius: 15px;
+  z-index: 1000 ;
+}
